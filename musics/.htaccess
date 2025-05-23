@@ -1,0 +1,9 @@
+Options +Indexes
+IndexOptions FancyIndexing Namewidth="DescriptionWidth="
+# Allow access to everything inside this folder
+Options +Indexes
+DirectoryIndex disabled
+AddType audio/mpeg .mp3
+AddType audio/mp4 .m4a
+AddType application/json .json
+

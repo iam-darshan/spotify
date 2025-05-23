@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css" />
+    <script src="https://kit.fontawesome.com/ace1db4d2c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container bg-black">
+    <div class="left">
+        <div class="home bg-grey rounded">
+            <ul>
+                <div class="closeAndLogo">                    
+                <li><img class="invert" src="assests/logo.svg" alt="logo">Spotify</li>
+            <i class="fas fa-xmark fa-xl" id="close" ></i>
+        </div>
+                <li><img class="invert" src="assests/home.svg" alt="home">Home</li>
+                <li><img class="invert" src="assests/search.svg" alt="search">Search</li>
+            </ul>
+        </div>
+        <div class="library bg-grey rounded">
+            <div class="heading">
+                <img class="invert" src="assests/library.svg" alt="library">
+                <h2>Your Library</h2>
+                
+            </div>
+            <div class="songList">
+                    <ul>
+                        
+                    </ul>
+                </div>
+            <div class="footer">
+                <a href="https://www.spotify.com/privacy" target="_blank">Privacy</a> 
+                <a href="https://www.spotify.com/legal/cookies-policy/" target="_blank">Cookies</a> 
+                <a href="https://www.spotify.com/legal/end-user-agreement/" target="_blank">Legal</a> 
+                <a href="https://www.spotify.com/about-ads/" target="_blank">About</a> 
+                <a href="https://www.spotify.com/accessibility/" target="_blank">Accessibility</a>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+            <div class="nav">
+                <div class="flex align-items">
+                <div class="hamburger">
+                    <i class="fas fa-bars fa-2xl" id="hamburger"></i>
+                </div>
+                <div class="arrow">
+                    <i class="hgi hgi-stroke hgi-sharp hgi-arrow-left-01"></i>
+                    <i class="hgi hgi-stroke hgi-sharp hgi-arrow-right-01"></i>
+                </div>
+                </div>
+                <div class="log">
+                    <div class="signup">Sign Up</div>
+                    <div class="login">Log In</div>
+                </div>
+            </div>
+        <div class="playlist">
+            <h1>Spotify Playlist</h1>
+            <div class="cardContainer">
+<!--                 
+                <div class="card" data-folder="Malayalam">
+                    <div class="play">
+                    <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+
+                    </div>
+                    <img src="https://i.scdn.co/image/ab67706f00000002f5452480709e81e10e6847be" alt="">
+                    <h3>Trending Now Malayalam</h3>
+                    <p>Every song that's Trending NOW from Malayalam! </p>
+                </div>
+                <div class="card" data-folder="English">
+                    <div class="play">
+                         <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+                    </div>
+                    <img src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8415e1ea1c4a536f9052a037e0" alt="">
+                    <h3>Hot Hits English</h3>
+                    <p>Top English music that the world is listening to.</p>
+                </div>
+                <div class="card" data-folder="Romantic">
+                    <div class="play">
+                    <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+
+                    </div>
+                    <img src="https://i.scdn.co/image/ab67706f00000002bc62f44b9b7e65dc0ecf13fa" alt="">
+                    <h3>Trending Valantine Hits</h3>
+                    <p>India's ultimate love playlist ❤️ </p>
+                </div><div class="card" data-folder="Tamil">
+                    <div class="play">
+                         <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+                    </div>
+                    <img src="https://i.scdn.co/image/ab67706f00000002a8c457c18ee00b001f0c7708" alt="">
+                    <h3>rending Now Tamil</h3>
+                    <p>Top Trending Tamil Songs in Social Media</p>
+                </div>
+
+                 <div class="card" data-folder="Romantic">
+                    <div class="play">
+                    <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+
+                    </div>
+                    <img src="https://i.scdn.co/image/ab67706f00000002bc62f44b9b7e65dc0ecf13fa" alt="">
+                    <h3>Trending Valantine Hits</h3>
+                    <p>India's ultimate love playlist ❤️ </p>
+                </div>
+
+                <div class="card" data-folder="Tamil">
+                    <div class="play">
+                         <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+                    </div>
+                    <img src="https://i.scdn.co/image/ab67706f00000002a8c457c18ee00b001f0c7708" alt="">
+                    <h3>rending Now Tamil</h3>
+                    <p>Top Trending Tamil Songs in Social Media</p>
+                </div>
+
+                <div class="card" data-folder="Malayalam">
+                    <div class="play">
+                    <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+
+                    </div>
+                    <img src="https://i.scdn.co/image/ab67706f00000002f5452480709e81e10e6847be" alt="">
+                    <h3>Trending Now Malayalam</h3>
+                    <p>Every song that's Trending NOW from Malayalam! </p>
+                </div>
+                <div class="card" data-folder="English">
+                    <div class="play">
+                         <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+                    </div>
+                    <img src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8415e1ea1c4a536f9052a037e0" alt="">
+                    <h3>Hot Hits English</h3>
+                    <p>Top English music that the world is listening to.</p>
+                </div>
+               
+
+                <div class="card" data-folder="Hindi">
+                    <div class="play">
+                         <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+                    </div>
+                    <img src="https://i.scdn.co/image/ab67706f000000023f7b39872b6bb36288c1a52c" alt="">
+                    <h3>Hot Hits Hindi</h3>
+                    <p>Hottest Hindi music that India is listening to. Cover - Stree 2</p>
+                </div>
+
+                
+
+                <div class="card">
+                    <div class="play">
+                    <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+
+                    </div>
+                    <img src="https://i.scdn.co/image/ab67706f00000002f5452480709e81e10e6847be" alt="">
+                    <h3>Trending Now Malayalam</h3>
+                    <p>Every song that's Trending NOW from Malayalam! </p>
+                </div>
+
+                 <div class="card" data-folder="Romantic">
+                    <div class="play">
+                    <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                        <polygon points="208,144 208,368 368,256" fill="black" />
+                    </svg>
+
+                    </div>
+                    <img src="https://i.scdn.co/image/ab67706f00000002bc62f44b9b7e65dc0ecf13fa" alt="">
+                    <h3>Trending Valantine Hits</h3>
+                    <p>India's ultimate love playlist ❤️ </p>
+                </div>
+                 -->
+            </div>
+        </div>
+        <div class="playbar">
+            <div class="seekbar">
+                <div class="circle"></div>           \
+            </div>  
+            <div class="details">
+            <div class="songInfo"></div>
+            <div class="songBtn">
+                <i id="previous" class="fa-solid fa-backward-step fa-xl"></i>
+                <i id="play" class="fa-solid fa-play fa-xl"></i>
+                <i id="next" class="fa-solid fa-forward-step fa-xl"></i>
+            </div>
+
+            <div class="songTime">
+                <div class="vol">
+                    <i class="fa-solid fa-volume-high"></i>
+                    <input type="range" name="vol" id="vol" min="0" max="1" step="0.1" default="1">
+                </div>
+                <h3 id="time">0:00/0:00</h3></div>
+            </div>
+             
+        </div>
+    </div>  
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
