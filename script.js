@@ -1,5 +1,10 @@
 console.log("Hello")
 
+  	let play = document.querySelector("#play");
+	let next=document.querySelector("#next");
+	let previous=document.querySelector("#previous");
+	let vol=document.querySelector("#vol");	
+
 const owner = "iam-darshan";
 const repo = "spotify";
 const branch = "main";
@@ -16,12 +21,15 @@ async function getSongs(folder) {
 
     songs = [];
 
+
     for (let index = 0; index < files.length; index++) {
         const file = files[index];
         if (file.name.endsWith(".m4a") || file.name.endsWith(".mp3")) {
             songs.push(file.download_url.split("/"+currentFolder+"/")[1])
         }
     }
+
+
 
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
     songUL.innerHTML = " "
@@ -44,9 +52,11 @@ async function getSongs(folder) {
         })
     })
 
+   if (songs.length > 0) {
     const firstSong = songs[0]; 
     const displayName = firstSong.replaceAll("%20", " ").replaceAll("%2", ",").slice(0, -4); 
     playMusic(firstSong, displayName)
+}
 
     return songs;
 }
@@ -118,19 +128,23 @@ async function getAlbum(){
                     <h3>${response.title}</h3>
                     <p>${response.description}</p>
                 </div>`
-            albumClick();
-            trackChange();
+            
         }
+        
     }
+    albumClick();
+        trackChange();
 }
 
 async function main(){
-    songs = await getSongs("musics/Romantic")
+      
+	
+    songs = await getSongs("musics/romantic")
     console.log(songs)
 
     await getAlbum();
 
-    let play = document.querySelector("#play");
+   
 
     play.addEventListener("click",()=>{
         if(currentSong.paused){
