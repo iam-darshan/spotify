@@ -1,5 +1,7 @@
 console.log("Hello")
 
+let token="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"
+
   	let play = document.querySelector("#play");
 	let next=document.querySelector("#next");
 	let previous=document.querySelector("#previous");
@@ -106,44 +108,74 @@ function trackChange(){
 
 async function getAlbum(){
     const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/musics?ref=${branch}`;
-    let res = await fetch(apiUrl);
+    let res = await fetch(apiUrl, {
+        headers: {
+            Authorization: `token ${token}`
+        }
+    });
     let folders = await res.json();
+
+    
+    if (!Array.isArray(folders)) {
+        console.error("Error fetching folders:", folders);
+        return;
+    }
 
     let cardContainer = document.querySelector(".cardContainer");
     cardContainer.innerHTML = "";
     for (const folder of folders) {
         if (folder.type === "dir") {
-            const albumUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/musics/${folder.name}/album.json`;
-            let a = await fetch(albumUrl);
-            let response = await a.json();
+            const apiAlbumUrl = `https://api.github.com/repos/${owner}/${repo}/contents/musics/${folder.name}/album.json?ref=${branch}`;
 
-            cardContainer.innerHTML = cardContainer.innerHTML + `<div class="card" data-folder="${folder.name}">
-                    <div class="play">
-                         <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
-                        <circle cx="256" cy="256" r="256" fill="#1ed760" />
-                        <polygon points="208,144 208,368 368,256" fill="black" />
-                    </svg>
-                    </div>
-                    <img src="${response.cover}" alt="cover">
-                    <h3>${response.title}</h3>
-                    <p>${response.description}</p>
-                </div>`
-            
+            let a = await fetch(apiAlbumUrl, {
+            headers: {
+                Authorization: `token ${token}`
+            }
+        });
+
+            let data = await a.json();
+
+// Decode base64 content
+let response = JSON.parse(atob(data.content));
+
+            cardContainer.innerHTML += `<div class="card" data-folder="${folder.name}">
+                <div class="play">
+                     <svg class="fa-circle-play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50">
+                    <circle cx="256" cy="256" r="256" fill="#1ed760" />
+                    <polygon points="208,144 208,368 368,256" fill="black" />
+                </svg>
+                </div>
+                <img src="${response.cover}" alt="cover">
+                <h3>${response.title}</h3>
+                <p>${response.description}</p>
+            </div>`;
         }
-        
     }
     albumClick();
-        trackChange();
+    trackChange();
+}
+
+
+function showLoader(){
+    document.querySelector("#loader").style.display="flex";
+}
+function hideLoader(){
+    document.querySelector("#loader").style.display="none";
 }
 
 async function main(){
-      
+    showLoader();
+    
 	
     songs = await getSongs("musics/romantic")
     console.log(songs)
 
     await getAlbum();
-
+    setInterval(()=>{
+        hideLoader();
+    },1000)
+    
+    
    
 
     play.addEventListener("click",()=>{
@@ -182,4 +214,8 @@ async function main(){
     })
 };
 
-main();
+document.addEventListener("DOMContentLoaded",
+    ()=>{
+    main();
+    }
+)
